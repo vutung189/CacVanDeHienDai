@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using PhotoGallery.Entities;
 using PhotoGallery.ViewModels;
 using AutoMapper;
+using PhotoGallery.Infrastructure.Services;
 using PhotoGallery.Infrastructure.Repositories;
 using PhotoGallery.Infrastructure.Core;
 using Microsoft.AspNetCore.Authorization;
@@ -17,13 +18,15 @@ namespace PhotoGallery.Controllers
     [Route("api/[controller]")]
     public class AlbumsController : Controller
     {
+        //private readonly IAlbumService _albumService;
         private readonly IAuthorizationService _authorizationService;
         IAlbumRepository _albumRepository;
         ILoggingRepository _loggingRepository;
-        public AlbumsController(IAuthorizationService authorizationService,
+        public AlbumsController( IAuthorizationService authorizationService,
                                 IAlbumRepository albumRepository,
                                 ILoggingRepository loggingRepository)
         {
+           // _albumService = albumService;
             _authorizationService = authorizationService;
             _albumRepository = albumRepository;
             _loggingRepository = loggingRepository;
@@ -124,5 +127,55 @@ namespace PhotoGallery.Controllers
 
             return pagedSet;
         }
+       
+        //[Authorize(Policy = "AdminOnly")]
+        [Route("create")]
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateAlbumViewModel album)
+        {
+            IActionResult _result = new ObjectResult(false);
+            GenericResult _registrationResult = null;
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    AlbumService _albumService = new AlbumService(_albumRepository);
+                    Album _album = _albumService.CreateAlbum(album.Title, album.Description, album.User_ID);
+
+                    if (_album != null)
+                    {
+                        _registrationResult = new GenericResult()
+                        {
+                            Succeeded = true,
+                            Message = "Create Album succeeded"
+                        };
+                    }
+                }
+                else
+                {
+                    _registrationResult = new GenericResult()
+                    {
+                        Succeeded = false,
+                        Message = "Invalid fields."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                _registrationResult = new GenericResult()
+                {
+                    Succeeded = false,
+                    Message = ex.Message
+                };
+
+                _loggingRepository.Add(new Error() { Message = ex.Message, StackTrace = ex.StackTrace, DateCreated = DateTime.Now });
+                _loggingRepository.Commit();
+            }
+
+            _result = new ObjectResult(_registrationResult);
+            return _result;
+        }
+        
     }
 }
