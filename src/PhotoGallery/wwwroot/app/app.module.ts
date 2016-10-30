@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Location, LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { Headers, RequestOptions, BaseRequestOptions} from '@angular/http';
+import { Headers, RequestOptions, BaseRequestOptions } from '@angular/http';
+import "rxjs/Rx";
 
 import { AccountModule } from './components/account/account.module';
 import { AppComponent }  from './app.component';
@@ -11,8 +12,10 @@ import { AlbumPhotosComponent } from './components/album-photos.component';
 import { HomeComponent } from './components/home.component';
 import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
+import { ProfileComponent } from './components/profile.component';
+
+
 import { routing } from './routes';
-import { ProfileComponent} from './components/profile.component';
 import { QuocComponent } from './components/Quoc.component';
 
 

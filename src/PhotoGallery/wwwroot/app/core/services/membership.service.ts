@@ -16,7 +16,7 @@ export class MembershipService {
     register(newUser: Registration) {
 
         this.accountService.set(this._accountRegisterAPI);
-        
+
         return this.accountService.post(JSON.stringify(newUser));
     }
 
@@ -39,7 +39,7 @@ export class MembershipService {
 
 
     isUserAuthenticated(): boolean {
-        var _user: User = localStorage.getItem('user');
+        var _user = localStorage.getItem('user');
         if (_user != null)
             return true;
         else

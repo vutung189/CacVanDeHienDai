@@ -6,8 +6,8 @@ import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
 import { AlbumPhotosComponent } from './components/album-photos.component';
 import { accountRoutes, accountRouting } from './components/account/routes';
-import { ProfileComponent } from './components/Profile.component';
 import { QuocComponent } from './components/Quoc.component';
+import { ProfileComponent } from './components/profile.component';
 
 
 const appRoutes: Routes = [
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
         component: PhotosComponent
     },
     {
-        path: 'albums',
+        path: 'album',
         component: AlbumsComponent
     },
     {
