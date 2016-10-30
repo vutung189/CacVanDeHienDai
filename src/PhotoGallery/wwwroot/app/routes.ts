@@ -6,6 +6,8 @@ import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
 import { AlbumPhotosComponent } from './components/album-photos.component';
 import { accountRoutes, accountRouting } from './components/account/routes';
+import { ProfileComponent } from './components/Profile.component';
+import { QuocComponent } from './components/Quoc.component';
 
 
 const appRoutes: Routes = [
@@ -29,7 +31,12 @@ const appRoutes: Routes = [
     {
         path: 'albums/:id/photos',
         component: AlbumPhotosComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
     }
+
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

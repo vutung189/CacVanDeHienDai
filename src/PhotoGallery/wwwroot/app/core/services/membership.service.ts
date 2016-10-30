@@ -25,10 +25,18 @@ export class MembershipService {
         return this.accountService.post(JSON.stringify(creds));
     }
 
+
+    profile() {
+
+        return null
+
+    }
+
     logout() {
         this.accountService.set(this._accountLogoutAPI);
         return this.accountService.post(null, false);
     }
+
 
     isUserAuthenticated(): boolean {
         var _user: User = localStorage.getItem('user');

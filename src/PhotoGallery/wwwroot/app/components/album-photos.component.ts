@@ -9,7 +9,7 @@ import { OperationResult } from '../core/domain/operationResult';
 import { Subscription }  from 'rxjs/Subscription';
 
 @Component({
-    selector: 'album-photo',
+    selector: 'album-photos',
     providers: [NotificationService],
     templateUrl: './app/components/album-photos.component.html'
 })

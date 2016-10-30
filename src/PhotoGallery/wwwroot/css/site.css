@@ -55,14 +55,9 @@ footer {
     border: 1px solid #31708F;
 }
 
-/* validation form controls */
-.ng-valid[required] {
-    border-left: 5px solid #42A948; /* green */
-}
+/* validation form controls 
 
-.ng-invalid {
-    border-left: 5px solid #a94442; /* red */
-}
+*/
 
 .img-caption {
     margin: 0;

@@ -12,6 +12,10 @@ import { HomeComponent } from './components/home.component';
 import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
 import { routing } from './routes';
+import { ProfileComponent} from './components/profile.component';
+import { QuocComponent } from './components/Quoc.component';
+
+
 
 import { DataService } from './core/services/data.service';
 import { MembershipService } from './core/services/membership.service';
@@ -36,11 +40,13 @@ class AppBaseRequestOptions extends BaseRequestOptions {
         routing,
         AccountModule
     ],
-    declarations: [AppComponent, AlbumPhotosComponent, HomeComponent, PhotosComponent, AlbumsComponent],
+    declarations: [AppComponent, AlbumPhotosComponent, HomeComponent, PhotosComponent, AlbumsComponent, ProfileComponent, QuocComponent ],
+
     providers: [DataService, MembershipService, UtilityService, NotificationService,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: RequestOptions, useClass: AppBaseRequestOptions }],
-    bootstrap: [AppComponent]
+
+    bootstrap: [AppComponent, AlbumPhotosComponent]
 })
 export class AppModule { }
 
