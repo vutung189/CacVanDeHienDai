@@ -5,6 +5,7 @@
                 Photo Gallery albums
                 <small>Page {{_page + 1}} of {{_pagesCount}}</small>
             </h1>
+            <a [routerLink]="['/createAlbum']" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add Album</a>
             <ol class="breadcrumb">
                 <li>
                     <a [routerLink]="['/Home']">Home</a>

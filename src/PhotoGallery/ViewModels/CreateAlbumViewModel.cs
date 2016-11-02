@@ -12,6 +12,6 @@ namespace PhotoGallery.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         [Required]
-        public int User_ID { get; set; }
+        public string Username { get; set; }
     }
 }

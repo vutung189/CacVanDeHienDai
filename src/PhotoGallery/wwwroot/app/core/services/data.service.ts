@@ -24,6 +24,11 @@ export class DataService {
             .map(response => (<Response>response));
     }
 
+    getTimeLine() {
+        var uri = this._baseUri;
+        return this.http.get(uri).map(response => (<Response>response)); 
+    }
+
     post(data?: any, mapJson: boolean = true) {
         if (mapJson)
             return this.http.post(this._baseUri, data)

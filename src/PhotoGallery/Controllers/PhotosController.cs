@@ -73,6 +73,28 @@ namespace PhotoGallery.Controllers
             return pagedSet;
         }
 
+        //Time Line for Home
+        [HttpGet]
+        [Route("timeLine")]
+        public IActionResult timeLine()
+        {
+            IActionResult _result = new ObjectResult(false);
+            List<Photo> _photos = null;
+            _photos = _photoRepository
+                .AllIncluding(p => p.Album)
+                .OrderByDescending(p => p.DateUploaded)
+                .ToList();
+
+            IEnumerable<PhotoViewModel> _photosVM = Mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoViewModel>>(_photos);
+
+
+
+
+            _result = new ObjectResult(_photosVM);
+            return _result;
+        }
+
+
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {

@@ -1,4 +1,4 @@
-﻿export class Photo {
+﻿export class UserPhoto {
     Id: number;
     Title: string;
     Uri: string;
@@ -11,14 +11,14 @@
         title: string,
         uri: string,
         albumId: number,
-        albumTitle: string,
-        username :string,
+        albumTitle : string,
+        username: string,
         dateUploaded: Date) {
         this.Id = id;
         this.Title = title;
         this.Uri = uri;
         this.AlbumId = albumId;
-        this.AlbumTitle = albumTitle;
+        this.AlbumTitle = albumTitle; 
         this.Username = username;
         this.DateUploaded = dateUploaded;
     }

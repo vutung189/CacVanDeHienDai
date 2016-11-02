@@ -3,22 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Location, LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { Headers, RequestOptions, BaseRequestOptions } from '@angular/http';
-import "rxjs/Rx";
-
+import { Headers, RequestOptions, BaseRequestOptions} from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AccountModule } from './components/account/account.module';
 import { AppComponent }  from './app.component';
 import { AlbumPhotosComponent } from './components/album-photos.component';
 import { HomeComponent } from './components/home.component';
 import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
-import { ProfileComponent } from './components/profile.component';
-
-
+import { CreateComponent } from './components/create.component';
 import { routing } from './routes';
-import { QuocComponent } from './components/Quoc.component';
-
-
 
 import { DataService } from './core/services/data.service';
 import { MembershipService } from './core/services/membership.service';
@@ -41,15 +35,14 @@ class AppBaseRequestOptions extends BaseRequestOptions {
         FormsModule,
         HttpModule,
         routing,
-        AccountModule
+        AccountModule,
+        ReactiveFormsModule
     ],
-    declarations: [AppComponent, AlbumPhotosComponent, HomeComponent, PhotosComponent, AlbumsComponent, ProfileComponent, QuocComponent ],
-
+    declarations: [AppComponent, AlbumPhotosComponent, HomeComponent, PhotosComponent, AlbumsComponent, CreateComponent],
     providers: [DataService, MembershipService, UtilityService, NotificationService,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: RequestOptions, useClass: AppBaseRequestOptions }],
-
-    bootstrap: [AppComponent, AlbumPhotosComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 

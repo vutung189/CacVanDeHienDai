@@ -9,7 +9,7 @@ namespace PhotoGallery.Infrastructure.Services
     public interface IAlbumService
     {
 
-        Album CreateAlbum(string Title, string Description, int User_ID);
+        Album CreateAlbum(string Title, string Description, string Username);
         Album GetAlbum(int albumID);
     }
 }

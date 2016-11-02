@@ -12,7 +12,7 @@ namespace PhotoGallery.ViewModels
         public string Uri { get; set; }
         public int AlbumId { get; set; }
         public string AlbumTitle { get; set; }
-
+        public string Username { get; set; }
         public DateTime DateUploaded { get; set; }
     }
 }

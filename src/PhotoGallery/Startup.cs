@@ -19,7 +19,6 @@ using Microsoft.AspNetCore.StaticFiles;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json.Serialization;
-using Microsoft.Extensions.Logging;
 
 namespace PhotoGallery
 {
@@ -107,7 +106,7 @@ namespace PhotoGallery
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // this will serve up wwwroot
             app.UseFileServer();

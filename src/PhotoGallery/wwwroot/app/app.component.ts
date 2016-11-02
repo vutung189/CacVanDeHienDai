@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/map';
-import { enableProdMode } from '@angular/core';
+import {enableProdMode} from '@angular/core';
 
 enableProdMode();
 import { MembershipService } from './core/services/membership.service';

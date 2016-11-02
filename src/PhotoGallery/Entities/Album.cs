@@ -14,7 +14,7 @@ namespace PhotoGallery.Entities
         }
         public int Id { get; set; }
         public string Title { get; set; }
-
+        public int User_ID { get; set; }
         public string Description { get; set; }
         public DateTime DateCreated { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }

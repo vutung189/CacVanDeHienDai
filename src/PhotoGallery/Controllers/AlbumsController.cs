@@ -22,14 +22,16 @@ namespace PhotoGallery.Controllers
         private readonly IAuthorizationService _authorizationService;
         IAlbumRepository _albumRepository;
         ILoggingRepository _loggingRepository;
+        IUserRepository _userRepository;
         public AlbumsController( IAuthorizationService authorizationService,
-                                IAlbumRepository albumRepository,
+                                IAlbumRepository albumRepository, IUserRepository userRepository,
                                 ILoggingRepository loggingRepository)
         {
            // _albumService = albumService;
             _authorizationService = authorizationService;
             _albumRepository = albumRepository;
             _loggingRepository = loggingRepository;
+            _userRepository = userRepository;
         }
 
         [Authorize(Policy = "AdminOnly")]
@@ -140,8 +142,8 @@ namespace PhotoGallery.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    AlbumService _albumService = new AlbumService(_albumRepository);
-                    Album _album = _albumService.CreateAlbum(album.Title, album.Description, album.User_ID);
+                    AlbumService _albumService = new AlbumService(_albumRepository, _userRepository);
+                    Album _album = _albumService.CreateAlbum(album.Title, album.Description, album.Username);
 
                     if (_album != null)
                     {
